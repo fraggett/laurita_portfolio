@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="Sobre mi | Laura Senior" description="Sobre mi Laura Senior Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Sobre mi"
+				tagline="Gracias por pasar. Lee a continuación para obtener más información sobre mí."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Laura Senior at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Acerca de mí</h2>
+				<div class="content">
+					<p>
+						Comunicadora Social y Periodista, con experiencia en Marketing Digital, Comunicación Organizacional y Corporativa.
+						Con capacidad para desarrollar actividades comunicacionales que permitan satisfacer las necesidades de información de 
+						la Institución y su posicionamiento. Manejo de relaciones interpersonales, proactiva, con capacidad de manejar situaciones 
+						que se presenten cotidianamente, espíritu de liderazgo, destreza para el eficiente cumplimiento de objetivos gracias a 
+						la capacidad de trabajar en equipo.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Educación</h2>
+				<div class="content">
+					<p>Comunicadora Social y Periodista, Universidad Autónoma del Caribe, 2021.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>officia unde omnis</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
